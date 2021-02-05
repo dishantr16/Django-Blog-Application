@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 
-class CustomerAccountManager(BaseUserManager):
+class CustomAccountManager(BaseUserManager):
     
     def create_superuser(self, email, user_name, first_name, password, **other_fields):
 
@@ -44,7 +44,7 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
 
-    objects = CustomerAccountManager()
+    objects = CustomAccountManager()
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['user_name','first_name']
