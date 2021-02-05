@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'blog_api',
     'rest_framework',
     'corsheaders',
-    #'users',
+    'users',
     'rest_framework_simplejwt.token_blacklist',
 ]
 
@@ -148,7 +148,7 @@ CORS_ALLOWED_ORIGINS = [
 
 ]
 
-#AUTH_USER_MODEL = "users.NewUser"
+AUTH_USER_MODEL = "users.NewUser"
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=1),
