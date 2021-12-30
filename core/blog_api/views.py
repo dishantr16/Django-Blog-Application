@@ -48,11 +48,10 @@ class CreatePost(APIView):
     def Post(self, request, format=None):
         print(request.data)
         serializer = PostSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        else:
+        if not serializer.is_valid():
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 class AdminPostDetail(generics.RetrieveAPIView):
